@@ -1,4 +1,4 @@
-#RenterCafe
+## RenterCafe
 
 Putting Laravel to the test
 
