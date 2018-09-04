@@ -11,13 +11,10 @@
                   <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
                 <li> 
-                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Applicants</span></a>
+                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Properties</span></a>
                 </li>
                 <li> 
-                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Positions</span></a>
-                </li>
-                <li> 
-                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">Employees</span></a>
+                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Tenanats</span></a>
                 </li>
                 <li> 
                   <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Reports</span></a>
