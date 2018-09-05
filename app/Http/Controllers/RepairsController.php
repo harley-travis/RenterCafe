@@ -13,11 +13,23 @@ class RepairsController extends Controller {
         // total spent on repair
         // notes 
         // status
+    public function addRepair() {
+
+    }
 
     // update reair
+    public function updateRepair() {
+
+    }
 
     // archive repair 
+    public function archiveRepair() {
+
+    }
 
     // find repair 
+    public function findRepairById() {
+        
+    }
 
 }

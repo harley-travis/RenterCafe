@@ -14,7 +14,10 @@
                   <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Properties</span></a>
                 </li>
                 <li> 
-                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Tenanats</span></a>
+                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Maintenance</span></a>
+                </li>
+                <li> 
+                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Repairs</span></a>
                 </li>
                 <li> 
                   <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Reports</span></a>

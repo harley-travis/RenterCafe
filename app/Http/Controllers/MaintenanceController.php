@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 
 class MaintenanceController extends Controller {
     
-    // add a reqeust (done by tenant)
- 
     // mark status (done by user)
         // pending
         // in progress
         // completed
+    public function status() {
+
+    }
 
     // archive request (don't delete. we will want it for the reports)
+    public function archive() {
+        
+    }
 
 
 

@@ -9,6 +9,9 @@ class FeedbackController extends Controller {
     
 
     // add feedback (user)
+    public function addFeedback() {
+
+    }
 
     // status of feedaback (super admin)
         // pending
@@ -16,8 +19,14 @@ class FeedbackController extends Controller {
         // in progress
         // archived
         // added to dev board
+    public function status() {
+
+    }
 
     // archive feedback (super admin)
+    public function archive() {
+
+    }
 
 
 }

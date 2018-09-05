@@ -45,5 +45,25 @@ Route::group(['prefix' => 'property'], function() {
 
 });
 
+Route::group(['prefix' => 'maintenance'], function() {
+	$c = 'MaintenanceController';
+
+});
+
+Route::group(['prefix' => 'repairs'], function() {
+	$c = 'RepairController';
+
+});
+
+Route::group(['prefix' => 'reports'], function() {
+	$c = 'ReportController';
+
+});
+
+Route::group(['prefix' => 'feedback'], function() {
+	$c = 'FeedbackController';
+
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
