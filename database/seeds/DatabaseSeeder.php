@@ -13,6 +13,15 @@ class DatabaseSeeder extends Seeder
     public function run() {
         //$this->call(UsersTableSeeder::class);
 
+        // USERS
+        DB::table('users')->insert([
+            'name' => 'Tony Stark',
+            'email' =>'tony@gmail.com',
+            'password' => bcrypt('test'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
         // PROPERTIES
         DB::table('properties')->insert([
             'created_at' => Carbon::now(),
@@ -80,9 +89,9 @@ class DatabaseSeeder extends Seeder
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'name' => 'Tony Stark', 
+            'name' => 'Bruce Banner', 
             'phone' => '8885557416', 
-            'email' => 'tony@gmail.com', 
+            'email' => 'bruce@gmail.com', 
             'balance' => '0', 
             'property_id' => '2', 
         ]);

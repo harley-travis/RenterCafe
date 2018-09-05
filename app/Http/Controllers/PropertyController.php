@@ -2,84 +2,87 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Property;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Session\Store;
 
-class PropertyController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+class PropertyController extends Controller {
+    
+    public function getProperties() {
+
+        if(Auth::check()) {
+            $jobs = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
+            return view('property.overview', ['property' => $properties]);
+        } 
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function createProperty() {
+        return view('property.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function addProperty(Request $request) {
+
+        // VALIDATE
+
+        // VALID USER
+        $user = Auth::user(); 
+        if(!$user) {
+            return redirect()->back();
+        }
+
+        $property = new Property([
+            'address_1'     => $request->input('address_1'), 
+            'address_2'     => $request->input('address_2'),
+            'city'          => $request->input('city'),
+            'state'         => $request->input('state'),
+            'zip'           => $request->input('zip'),
+            'country'       => $request->input('country'),
+            'occupied'      => $request->input('occupied'),
+            'lease_length'  => $request->input('lease_length'),
+            'rent_amount'   => $request->input('rent_amount'),
+            'pet'           => $request->input('pet'),
+            'user_id'       => $company_id, // find number
+            
+        ]);
+
+        $user->properties()->save($property);
+
+        return redirect()
+            ->route('property.overview')
+            ->with('info', 'Good news, your job was added!');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Property $property)
-    {
-        //
+    public function getPropertyId($id) {
+
+        $property = Property::find($id);
+        return view('property.edit', ['property' => $property, 'property_id' => $id]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Property $property)
-    {
-        //
+    public function updateProperty(Store $session, Request $request) {
+
+        // VALIDATE
+
+        $property = Property::find($request->input('id'));
+        $property->address_1 = $request->input('address_1');
+        $property->address_2 = $request->input('address_2');
+        $property->city = $request->input('city');
+        $property->state = $request->input('state');
+        $property->zip = $request->input('zip');
+        $property->country = $request->input('country');
+        $property->occupied = $request->input('occupied');
+        $property->lease_length = $request->input('lease_length');
+        $property->rent_amount = $request->input('rent_amount');
+        $property->pet = $request->input('pet');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Property $property)
-    {
-        //
+    public function deleteProperty() {
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Property $property)
-    {
-        //
-    }
+
 }
