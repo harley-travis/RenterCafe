@@ -18,7 +18,8 @@ class Property extends Model {
         'rent_amount',
         'pet',
         'tenant_id',
-        'maintenance_id'
+        'maintenance_id',
+        'repair_id'
     ];
 
     // RELATIONSHIPS
@@ -32,6 +33,10 @@ class Property extends Model {
 
     public function maintenance() {
         return $this->hasMany('App\Maintenance');
+    }
+
+    public function repairs() {
+        return $this->hasMany('App\Repair');
     }
 
 }

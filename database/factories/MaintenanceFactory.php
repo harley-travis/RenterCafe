@@ -10,7 +10,9 @@ $factory->define(App\Maintenance::class, function (Faker $faker) {
         'description' => $faker->realText, 
         'emergency' => $faker->numberBetween(0, 1), 
         'permission' => $faker->numberBetween(0, 1), 
+        'status' => 'Pending', 
         'property_id' => $faker->numberBetween(0, 3), 
+        'repair_id' => $faker->numberBetween(0, 3), 
 
     ];
 });

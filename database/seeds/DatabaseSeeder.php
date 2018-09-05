@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => '1',
             'tenant_id' => '1',
             'maintenance_id' => '1',
+            'repair_id' => '1',
         ]);
         DB::table('properties')->insert([
             'created_at' => Carbon::now(),
@@ -56,6 +57,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => '1',
             'tenant_id' => '2',
             'maintenance_id' => '2',
+            'repair_id' => '2',
         ]);
         DB::table('properties')->insert([
             'created_at' => Carbon::now(),
@@ -73,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => '1',
             'tenant_id' => '3',
             'maintenance_id' => '3',
+            'repair_id' => '3',
         ]);
         factory(App\Property::class, 5)->create();
 
@@ -108,6 +111,11 @@ class DatabaseSeeder extends Seeder
 
         // MAINTENANCE
         factory(App\Maintenance::class, 15)->create();
+
+        // REPAIRS
+        factory(App\Repair::class, 20)->create();
+
+        // BILLING
 
         // REPORTS
 

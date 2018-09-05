@@ -12,11 +12,17 @@ class Maintenance extends Model {
         'description', 
         'emergency', 
         'permission', 
-        'property_id'
+        'status',
+        'property_id',
+        'repair_id'
     ];
 
     // RELATIONSHIPS
     public function property() {
         return $this->belongsTo('App\Property');
+    }
+
+    public function repair() {
+        return $this->belongsTo('App\Repair');
     }
 }

@@ -4,7 +4,6 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Property::class, function (Faker $faker) {
     return [
-        
         'address_1' => $faker->streetAddress, 
         'address_2' => $faker->secondaryAddress, 
         'city' => $faker->city, 
@@ -18,6 +17,6 @@ $factory->define(App\Property::class, function (Faker $faker) {
         'tenant_id' => $faker->numberBetween(0, 5),
         'user_id' => $faker->numberBetween(0, 5),
         'maintenance_id' => $faker->numberBetween(0, 15),
-
+        'repair_id' => $faker->numberBetween(0, 15),
     ];
 });

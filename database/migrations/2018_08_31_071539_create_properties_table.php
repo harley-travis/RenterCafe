@@ -31,6 +31,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('user_id');
             $table->integer('tenant_id');
             $table->integer('maintenance_id');
+            $table->integer('repair_id');
         });
     }
 
