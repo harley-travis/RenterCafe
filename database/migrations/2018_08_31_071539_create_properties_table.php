@@ -25,6 +25,12 @@ class CreatePropertiesTable extends Migration
             $table->integer('occupied');
             $table->integer('lease_length');
             $table->integer('rent_amount');
+            $table->integer('pet');
+
+            // fk
+            $table->integer('user_id');
+            $table->integer('tenant_id');
+            $table->integer('maintenance_id');
         });
     }
 

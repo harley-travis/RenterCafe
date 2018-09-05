@@ -13,7 +13,11 @@ $factory->define(App\Property::class, function (Faker $faker) {
         'country' => 'United States', 
         'occupied' => $faker->numberBetween(0, 1),
         'lease_length' => $faker->numberBetween(0, 12),
-        'rent_amount' => $faker->numberBetween(900, 1500)
+        'rent_amount' => $faker->numberBetween(900, 1500),
+        'pet' => $faker->numberBetween(0, 1),
+        'tenant_id' => $faker->numberBetween(0, 5),
+        'user_id' => $faker->numberBetween(0, 5),
+        'maintenance_id' => $faker->numberBetween(0, 15),
 
     ];
 });

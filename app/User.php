@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // RELATIONSHIPS
+    public function property() {
+        return $this->belongsTo('App\Property');
+    }
 }

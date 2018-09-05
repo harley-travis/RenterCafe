@@ -20,5 +20,30 @@ Route::get('dashboard', function () {
 })->name('dashboard.dashboard');
 Auth::routes();
 
+Route::group(['prefix' => 'property'], function() {
+	$c = 'PropertyController';
+
+	Route::get('', [
+		'uses'	=> "$c@getProperties",
+		'as'	=> 'property.overview'
+	]);
+    
+    Route::get('add', [
+		'uses'	=> "$c@addApplicant",
+		'as'	=> 'property.create'
+	]);
+
+	Route::get('edit/{id}', [
+		'uses'	=> "$c@editApplicant",
+		'as'	=> 'property.edit'
+	]);
+
+	Route::get('delete', [
+		'uses'	=> "$c@deleteApplicant",
+		'as'	=> 'property.delete'
+	]);
+
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 

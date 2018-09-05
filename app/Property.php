@@ -15,9 +15,23 @@ class Property extends Model {
         'country', 
         'occupied',
         'lease_length',
-        'rent_amount'
+        'rent_amount',
+        'pet',
+        'tenant_id',
+        'maintenance_id'
     ];
 
     // RELATIONSHIPS
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
+    public function tenant() {
+        return $this->belongsTo('App\Tenant');
+    }
+
+    public function maintenance() {
+        return $this->hasMany('App\Maintenance');
+    }
 
 }
