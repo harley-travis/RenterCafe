@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     // RELATIONSHIPS
     public function property() {
-        return $this->belongsTo('App\Property');
+        return $this->hasMany('App\Property');
     }
 }

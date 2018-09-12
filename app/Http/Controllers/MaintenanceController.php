@@ -6,6 +6,11 @@ use App\Maintenance;
 use Illuminate\Http\Request;
 
 class MaintenanceController extends Controller {
+
+    // send maint req (does this just happen in the main cont?)
+    public function addMaintenanceRequest() {
+
+    }
     
     // mark status (done by user)
         // pending

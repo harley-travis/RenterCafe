@@ -13,8 +13,8 @@ class PropertyController extends Controller {
     public function getProperties() {
 
         if(Auth::check()) {
-            $jobs = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
-            return view('property.overview', ['property' => $properties]);
+            $properties = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
+            return view('property.overview', ['properties' => $properties]);
         } 
 
     }
@@ -44,11 +44,14 @@ class PropertyController extends Controller {
             'lease_length'  => $request->input('lease_length'),
             'rent_amount'   => $request->input('rent_amount'),
             'pet'           => $request->input('pet'),
-            'user_id'       => $company_id, // find number
+            'tenant_id'     => '0',
+            'maintenance_id'=> '0',
+            'repair_id'     => '0',
+            'user_id'       => Auth::user()->id, 
             
         ]);
 
-        $user->properties()->save($property);
+        $user->property()->save($property);
 
         return redirect()
             ->route('property.overview')
