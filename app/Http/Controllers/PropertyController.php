@@ -81,6 +81,10 @@ class PropertyController extends Controller {
         $property->rent_amount = $request->input('rent_amount');
         $property->pet = $request->input('pet');
 
+        $property->save();
+
+        return redirect()->route('property.overview')->with('info', 'Your property was successfully updated');
+
     }
 
     public function deleteProperty() {

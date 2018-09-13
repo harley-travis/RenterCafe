@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model {
+
+    protected $casts = [
+        'id' => 'integer'
+    ];
     
     protected $fillable = [
         'address_1', 

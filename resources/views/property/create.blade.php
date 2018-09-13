@@ -111,8 +111,6 @@
                             </select>
                         </div>  
 
-                       
-          
                         <input type="hidden" name="repair_id" value="">
                         <input type="hidden" name="maintenance_id" value="">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

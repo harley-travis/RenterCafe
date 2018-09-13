@@ -17,7 +17,7 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('address_1');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zip');
@@ -25,7 +25,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('occupied');
             $table->integer('lease_length');
             $table->integer('rent_amount');
-            $table->integer('pet');
+            $table->integer('pet')->nullable();
 
             // fk
             $table->integer('user_id');
