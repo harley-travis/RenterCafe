@@ -154,7 +154,6 @@
 
                         <!-- this is how the edit form knows which id to target -->
                         <input type="hidden" name="id" value="{{ $property_id }}">
-
                         <input type="hidden" name="repair_id" value="{{$property->repair_id}}">
                         <input type="hidden" name="maintenance_id" value="{{$property->maintenance_id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
