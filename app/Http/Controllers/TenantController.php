@@ -76,8 +76,10 @@ class TenantController extends Controller {
     }
 
     // remove tenant
-    public function deleteTenant() {
-
+    public function deleteTenant($id) {
+        $tenant = Tenant::find($id);
+        $tenant->delete();
+        return redirect()->route('tenants.overview')->with('info', 'The tenant was successfully deleted');
     }
 
 }
