@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Tenant;
+use App\Property;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Session\Store;
 
 class TenantController extends Controller {
     
@@ -16,9 +19,17 @@ class TenantController extends Controller {
         } 
     }
 
+    // direct them to the create form
+    public function createTenant() {
+        if(Auth::check()) {
+            $properties = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
+            return view('tenants.create', ['properties' => $properties]);
+        } 
+
+    }
 
     // create tenant 
-    public function createTenant(Request $request) {
+    public function addTenant(Request $request) {
 
         // VALIDATE
 
@@ -30,17 +41,18 @@ class TenantController extends Controller {
 
         // COLLECT TENANT DATA
         $tenant = new Tenant([
-            'name'          => $request->input('address_1'), 
-            'phone'         => $request->input('address_2'),
-            'email'         => $request->input('city'),
-            'balance'       => $request->input('state'),
+            'name'          => $request->input('name'), 
+            'phone'         => $request->input('phone'),
+            'email'         => $request->input('email'),
+            'balance'       => null,
+            'user_id'       => Auth::user()->id, 
             'property_id'   => $request->input('property_id'), 
             // find property id
             // this should be a drop down. they should be able to pick from drop down which property. send the id here
 
         ]);
 
-        $tenant()->save();
+        $user->tenant()->save($tenant);
 
         // EMAIL TENANT TMP CRED.
 
@@ -48,7 +60,7 @@ class TenantController extends Controller {
 
 
         return redirect()
-            ->route('tenant.overview')
+            ->route('tenants.overview')
             ->with('info', 'Good news, the tenant was successfully added!');
 
     }

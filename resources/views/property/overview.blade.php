@@ -40,7 +40,7 @@
 									<th>Property ID</th>
 									<th>Address</th>
                                     <th>State</th>
-									<th>Vacancy</th>
+									<th>Vacant</th>
 									<th>Rent Amount</th>
 									<th>Lease Length</th>
 									<th>Edit Property</th>
@@ -61,7 +61,13 @@
 										<td>{{ $property->id}}</td>
 										<td>{{ $property->address_1 }} {{ $property->address_2 }}</td>
                                         <td>{{ $property->state }}</td>
-										<td>{{ $property->occupied}}</td>
+										<td>
+											@if($property->occupied == '1')
+												Yes
+											@elseif($property->occupied == '0')
+												No
+											@endif
+										</td>
 										<td>${{ $property->rent_amount}}</td>
                                         <td>{{ $property->lease_length}}</td>
 										<td><a href="{{ route('property.edit', ['id' => $property->id ]) }}" class="btn waves-effect waves-light btn-info">Edit property</a></td> 

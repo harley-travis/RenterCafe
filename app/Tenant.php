@@ -11,6 +11,7 @@ class Tenant extends Model {
         'phone', 
         'email', 
         'balance', 
+        'user_id',
         'property_id'
     ];
 

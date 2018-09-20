@@ -19,7 +19,7 @@ class CreateTenantsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
-            $table->integer('balance');
+            $table->integer('balance')->nullable();
         
             // fk
             $table->integer('user_id');

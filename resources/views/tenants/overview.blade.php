@@ -37,7 +37,6 @@
 							<thead>
                             	<tr>
 									<th>Action</th>
-									<th>Tenant ID</th>
 									<th>Name</th>
                                     <th>Phone</th>
 									<th>Email</th>
@@ -58,14 +57,13 @@
 												</div>
 											</div>
 										</td>
-										<td>{{ $tenant->id}}</td>
 										<td>{{ $tenant->name }}</td>
                                         <td>{{ $tenant->phone }}</td>
 										<td>{{ $tenant->email }}</td>
 										<td>${{ $tenant->balance }}</td>
-                                        <td>{{ $tenant->property->address_1}}</td>
-										<td><a href="{{ route('tenants.edit', ['id' => $tenant->id ]) }}" class="btn waves-effect waves-light btn-info">Edit tenant</a></td> 
-										<td><a href="#" class="btn waves-effect waves-light btn-danger" data-toggle="modal" data-target="#deleteModal-{{$tenant->id}}" value="{{$tenant->id}}">Delete tenant</a></td>
+                                        <td>{{ $tenant->property['address_1']}}</td>
+										<td><a href="{{ route('tenants.edit', ['id' => $tenant->id ]) }}" class="btn waves-effect waves-light btn-info">Edit Tenant</a></td> 
+										<td><a href="#" class="btn waves-effect waves-light btn-danger" data-toggle="modal" data-target="#deleteModal-{{$tenant->id}}" value="{{$tenant->id}}">Delete Tenant</a></td>
 									</tr>
 
 									<!-- Confirm Delete Modal -->

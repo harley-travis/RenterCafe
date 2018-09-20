@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Property;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -15,6 +14,7 @@ class PropertyController extends Controller {
 
         if(Auth::check()) {
             $properties = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
+            dd($properties);
             return view('property.overview', ['properties' => $properties]);
         } 
 
