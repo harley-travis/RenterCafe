@@ -65,7 +65,7 @@
 										<td>${{ $property->rent_amount}}</td>
                                         <td>{{ $property->lease_length}}</td>
 										<td><a href="{{ route('property.edit', ['id' => $property->id ]) }}" class="btn waves-effect waves-light btn-info">Edit property</a></td> 
-										<td><a href="{{ route('property.delete', ['id' => $property->id ]) }}" class="btn waves-effect waves-light btn-danger">Archive property</a></td>
+										<td><a href="{{ route('property.delete', ['id' => $property->id ]) }}" class="btn waves-effect waves-light btn-danger">Delete property</a></td>
 									</tr>
 								@endforeach
 								
@@ -81,5 +81,8 @@
 	<div class="pagination-wrapper">
 		{{ $properties->links() }}
 	</div>
+
+	<!-- sweet alert -->
+	@include('sweetalert::alert')
 
 @endsection

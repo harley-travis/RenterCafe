@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard.dashboard');
+	
+	if( auth()->check() == null ) {
+		return redirect('/login');
+	} else {
+		return view('dashboard.dashboard');
+	}
+    
 });
 
 Route::get('dashboard', function () {
@@ -48,8 +54,8 @@ Route::group(['prefix' => 'property'], function() {
 		'as'	=> 'property.update'
 	]);
 
-	Route::get('delete', [
-		'uses'	=> "$c@deleteApplicant",
+	Route::get('delete/{id}', [
+		'uses'	=> "$c@deleteProperty",
 		'as'	=> 'property.delete'
 	]);
 
@@ -75,5 +81,8 @@ Route::group(['prefix' => 'feedback'], function() {
 
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 
+//Route::get('/dashboard', 'HomeController@index')->name('dashboard.dashboard');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

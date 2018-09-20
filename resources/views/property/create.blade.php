@@ -11,7 +11,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
 				<li class="breadcrumb-item">Property</li>
-                <li class="breadcrumb-item active">New Property</li>
+                <li class="breadcrumb-item active">Add Property</li>
 			</ol>
 		</div>
 	</div>

@@ -87,8 +87,10 @@ class PropertyController extends Controller {
 
     }
 
-    public function deleteProperty() {
-
+    public function deleteProperty($id) {
+        $property = Property::find($id);
+        $property->delete();
+        return redirect()->route('property.overview')->with('info', 'Your property was successfully deleted');
     }
 
 
