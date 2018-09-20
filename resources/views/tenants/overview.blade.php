@@ -6,14 +6,14 @@
 	<!-- ============================================================== -->
 	<div class="row page-titles">
 		<div class="col-md-5 align-self-center">
-			<h3 class="text-themecolor">Positions</h3>
+			<h3 class="text-themecolor">Tenants</h3>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-				<li class="breadcrumb-item active">Property Overview</li>
+				<li class="breadcrumb-item active">Tenants Overview</li>
 			</ol>
 		</div>
 		<div class="col-md-7 align-self-center">
-			<a href="{{ route('property.create') }}" class="btn waves-effect waves-light btn-success">Add Property</a>
+			<a href="{{ route('tenants.create') }}" class="btn waves-effect waves-light btn-success">Add Tenant</a>
 		</div>
 	</div>
 	<!-- ============================================================== -->
@@ -37,53 +37,53 @@
 							<thead>
                             	<tr>
 									<th>Action</th>
-									<th>Property ID</th>
-									<th>Address</th>
-                                    <th>State</th>
-									<th>Vacancy</th>
-									<th>Rent Amount</th>
-									<th>Lease Length</th>
-									<th>Edit Property</th>
-                                    <th>Delete Property</th>
+									<th>Tenant ID</th>
+									<th>Name</th>
+                                    <th>Phone</th>
+									<th>Email</th>
+									<th>Balance Due</th>
+									<th>Property</th>
+									<th>Edit Tenant</th>
+                                    <th>Delete Tenant</th>
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($properties as $property)
+								@foreach($tenants as $tenant)
 									<tr>
 										<td>
 											<div class="form-group">
 												<div class="checkbox checkbox-success">
-													<input id="checkbox-{{$property->id}}" type="checkbox">
-													<label for="checkbox-{{$property->id}}">  </label>
+													<input id="checkbox-{{$tenant->id}}" type="checkbox">
+													<label for="checkbox-{{$tenant->id}}">  </label>
 												</div>
 											</div>
 										</td>
-										<td>{{ $property->id}}</td>
-										<td>{{ $property->address_1 }} {{ $property->address_2 }}</td>
-                                        <td>{{ $property->state }}</td>
-										<td>{{ $property->occupied}}</td>
-										<td>${{ $property->rent_amount}}</td>
-                                        <td>{{ $property->lease_length}}</td>
-										<td><a href="{{ route('property.edit', ['id' => $property->id ]) }}" class="btn waves-effect waves-light btn-info">Edit property</a></td> 
-										<td><a href="#" class="btn waves-effect waves-light btn-danger" data-toggle="modal" data-target="#deleteModal-{{$property->id}}" value="{{$property->id}}">Delete property</a></td>
+										<td>{{ $tenant->id}}</td>
+										<td>{{ $tenant->name }}</td>
+                                        <td>{{ $tenant->phone }}</td>
+										<td>{{ $tenant->email }}</td>
+										<td>${{ $tenant->balance }}</td>
+                                        <td>{{ $tenant->property->address_1}}</td>
+										<td><a href="{{ route('tenants.edit', ['id' => $tenant->id ]) }}" class="btn waves-effect waves-light btn-info">Edit tenant</a></td> 
+										<td><a href="#" class="btn waves-effect waves-light btn-danger" data-toggle="modal" data-target="#deleteModal-{{$tenant->id}}" value="{{$tenant->id}}">Delete tenant</a></td>
 									</tr>
 
 									<!-- Confirm Delete Modal -->
-									<div class="modal fade" id="deleteModal-{{$property->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal-{{$property->id}}" aria-hidden="true">
+									<div class="modal fade" id="deleteModal-{{$tenant->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal-{{$tenant->id}}" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 											<div class="modal-header">
-												<h5 class="modal-title" id="deleteModal-{{$property->id}}">Delete Property</h5>
+												<h5 class="modal-title" id="deleteModal-{{$tenant->id}}">Delete Tenant</h5>
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
 											<div class="modal-body">
-												Are You Sure You Want To Delete This Property?
+												Are You Sure You Want To Delete This Tenant?
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-success" data-dismiss="modal">Nah, Don't Delete</button>
-												<a href="{{ route('property.delete', ['id' => $property->id ]) }}" class="btn btn-danger">Delete Property</a>
+												<a href="{{ route('tenants.delete', ['id' => $tenant->id ]) }}" class="btn btn-danger">Delete Tenant</a>
 											</div>
 											</div>
 										</div>
@@ -101,7 +101,7 @@
 
 
 	<div class="pagination-wrapper">
-		{{ $properties->links() }}
+	    {{ $tenants->links() }}
 	</div>
 
 @endsection

@@ -87,6 +87,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '8884569874', 
             'email' => 'peter@gmail.com', 
             'balance' => '1356', 
+            'user_id' => '1',
             'property_id' => '1', 
         ]);
         DB::table('tenants')->insert([
@@ -96,6 +97,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '8885557416', 
             'email' => 'bruce@gmail.com', 
             'balance' => '0', 
+            'user_id' => '1',
             'property_id' => '2', 
         ]);
         DB::table('tenants')->insert([
@@ -105,6 +107,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '9875558748', 
             'email' => 'dr.strange@gmail.com', 
             'balance' => '500', 
+            'user_id' => '2',
             'property_id' => '3', 
         ]);
         factory(App\Tenant::class, 5)->create();

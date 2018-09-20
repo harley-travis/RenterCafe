@@ -17,8 +17,5 @@
         <script src="{{ asset('js/d3/d3.min.js') }}"></script>
         <script src="{{ asset('js/c3-master/c3.min.js') }}"></script>
         <script src="{{ asset('js/dashboard1.js') }}"></script>
-
-        <!-- sweet alert -->
-        <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     </body>
 </html>

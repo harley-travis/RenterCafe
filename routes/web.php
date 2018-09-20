@@ -61,6 +61,41 @@ Route::group(['prefix' => 'property'], function() {
 
 });
 
+Route::group(['prefix' => 'tenants'], function() {
+	$c = 'TenantController';
+
+	Route::get('', [
+		'uses'	=> "$c@getTenants",
+		'as'	=> 'tenants.overview'
+	]);
+
+	Route::get('add', [
+		'uses'	=> "$c@createTenant",
+		'as'	=> 'tenants.create'
+	]);
+	
+    Route::post('add', [
+		'uses'	=> "$c@addTenant",
+		'as'	=> 'tenants.add'
+	]);
+
+	Route::get('edit/{id}', [
+		'uses'	=> "$c@getTenantId",
+		'as'	=> 'tenants.edit'
+	]);
+
+	Route::post('edit', [
+		'uses'	=> "$c@updateTenant",
+		'as'	=> 'tenants.update'
+	]);
+
+	Route::get('delete/{id}', [
+		'uses'	=> "$c@deleteTenant",
+		'as'	=> 'tenants.delete'
+	]);
+
+});
+
 Route::group(['prefix' => 'maintenance'], function() {
 	$c = 'MaintenanceController';
 

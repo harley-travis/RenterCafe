@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Tenant;
 use Illuminate\Http\Request;
 
 class TenantController extends Controller {
     
+    // get tenants
+    public function getTenants() {
+        if(Auth::check()) {
+            $tenants = Tenant::where('user_id', '=', Auth::user()->id)->paginate(15);
+            return view('tenants.overview', ['tenants' => $tenants]);
+        } 
+    }
+
+
     // create tenant 
     public function createTenant(Request $request) {
 

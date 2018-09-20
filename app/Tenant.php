@@ -16,6 +16,10 @@ class Tenant extends Model {
 
 
     // RELATIONSHIPS
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
     public function property() {
         return $this->belongsTo('App\Property');
     }

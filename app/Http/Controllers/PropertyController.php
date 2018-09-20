@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Property;
 use Illuminate\Http\Request;
 use App\Http\Requests;

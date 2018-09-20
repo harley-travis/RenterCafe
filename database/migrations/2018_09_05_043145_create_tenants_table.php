@@ -22,6 +22,7 @@ class CreateTenantsTable extends Migration
             $table->integer('balance');
         
             // fk
+            $table->integer('user_id');
             $table->integer('property_id');
             // $table->integer('maintenance_id'); // check the actual id for this. plurarl?
         });
