@@ -77,11 +77,13 @@ class TenantController extends Controller {
     public function updateTenant(Store $session, Request $request) {
 
          // VALIDATE
+         // CANNOT LET TEH USER SELECT A PROPERTRY ALREADY ASSIGNED TO A TENANT. THEY MUST UNDO THAT TENANT AND THEN THEY CAN ADD IT
 
          $tenant = Tenant::find($request->input('id'));
          $tenant->name = $request->input('name');
          $tenant->phone = $request->input('phone');
          $tenant->email = $request->input('email');
+         $tenant->renting = $request->input('renting');
          $tenant->property_id = $request->input('property_id');
 
          $tenant->save();

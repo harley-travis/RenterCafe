@@ -46,8 +46,39 @@
                             1) Rental agreement signeda
                             2) Background check status
                             3) Credit check status
+                            4) NOTES
 
                         --> 
+
+                         @if($tenant->renting === 0)
+
+                        <div class="form-group">
+                            <label for="renting">Is the {{$tenant->name}} still renting?</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="renting" id="yes" value="{{$tenant->renting}}" checked>
+                                <label class="form-check-label" for="yes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="renting" id="no" value="1">
+                                <label class="form-check-label" for="no">No</label>
+                            </div>
+                        </div>
+
+                        @elseif ($tenant->renting === 1)
+
+                        <div class="form-group">
+                            <label for="renting">Is the {{$tenant->name}} still renting?</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="renting" id="yes" value="0">
+                                <label class="form-check-label" for="yes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="renting" id="no" value="{{$tenant->renting}}" checked>
+                                <label class="form-check-label" for="no">No</label>
+                            </div>
+                        </div>
+
+                        @endif
 
                         <div class="form-group">
                             <label for="property">Property</label>

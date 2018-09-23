@@ -19,6 +19,7 @@ class CreateTenantsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
+            $table->integer('renting')->default('0')->comment('0 for yes, 1 for no');
             $table->integer('balance')->nullable();
         
             // fk

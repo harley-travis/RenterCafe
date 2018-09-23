@@ -10,6 +10,7 @@ class Tenant extends Model {
         'name', 
         'phone', 
         'email', 
+        'renting',
         'balance', 
         'user_id',
         'property_id'
