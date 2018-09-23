@@ -55,14 +55,19 @@ class TenantController extends Controller {
         $user->tenant()->save($tenant);
 
         // EMAIL TENANT TMP CRED.
+        $this::sendTenantEmail($tenant);
 
         // 30 DAY EXPIRATION ON CRED
-
 
         return redirect()
             ->route('tenants.overview')
             ->with('info', 'Good news, the tenant was successfully added!');
 
+    }
+
+    // send tenant login cred
+    public function sendTenantEmail($tenant) {
+       
     }
 
     public function getTenantId($id) {
