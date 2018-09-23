@@ -14,7 +14,6 @@ class PropertyController extends Controller {
 
         if(Auth::check()) {
             $properties = Property::where('user_id', '=', Auth::user()->id)->paginate(15);
-            dd($properties);
             return view('property.overview', ['properties' => $properties]);
         } 
 

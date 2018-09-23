@@ -65,9 +65,29 @@ class TenantController extends Controller {
 
     }
 
-    // edit tenant
-    public function editTenant() {
-        
+    public function getTenantId($id) {
+        if(Auth::check()) {
+            $tenant = Tenant::find($id);
+            $properties = Property::where('user_id', '=', Auth::user()->id)->get();
+            return view('tenants.edit', ['tenant' => $tenant, 'tenant_id' => $id, 'properties' => $properties]);
+        } 
+        //return view('tenants.edit', ['tenant' => $tenant, 'tenant_id' => $id]);
+    }
+
+    public function updateTenant(Store $session, Request $request) {
+
+         // VALIDATE
+
+         $tenant = Tenant::find($request->input('id'));
+         $tenant->name = $request->input('name');
+         $tenant->phone = $request->input('phone');
+         $tenant->email = $request->input('email');
+         $tenant->property_id = $request->input('property_id');
+
+         $tenant->save();
+ 
+         return redirect()->route('tenants.overview')->with('info', 'You successfully updated the tenant data.');
+
     }
 
     // reset tenant cred
@@ -76,6 +96,7 @@ class TenantController extends Controller {
     }
 
     // remove tenant
+    // TODO: NEED TO ARCHIVE THE TENANT AND NOT ACTUAL DELETE THEM
     public function deleteTenant($id) {
         $tenant = Tenant::find($id);
         $tenant->delete();
