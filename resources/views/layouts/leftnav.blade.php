@@ -17,7 +17,7 @@
                   <a class="waves-effect waves-dark" href="{{ route('tenants.overview') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Tenants</span></a>
                 </li>
                 <li> 
-                  <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Maintenance</span></a>
+                  <a class="waves-effect waves-dark" href="{{ route('maintenance.overview') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Maintenance</span></a>
                 </li>
                 <!-- <li> 
                   <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Repairs</span></a>

@@ -99,6 +99,32 @@ Route::group(['prefix' => 'tenants'], function() {
 Route::group(['prefix' => 'maintenance'], function() {
 	$c = 'MaintenanceController';
 
+	Route::get('', [
+		'uses'	=> "$c@getRequests",
+		'as'	=> 'maintenance.overview'
+	]);
+
+	Route::get('add', [
+		'uses'	=> "$c@createRequest",
+		'as'	=> 'maintenance.create'
+	]);
+	
+    Route::post('add', [
+		'uses'	=> "$c@addRequest",
+		'as'	=> 'maintenance.add'
+	]);
+
+	Route::get('view/{id}', [
+		'uses'	=> "$c@getRequestId",
+		'as'	=> 'maintenance.edit'
+	]);
+
+	Route::post('view', [
+		'uses'	=> "$c@updateRequest",
+		'as'	=> 'maintenance.update'
+	]);
+
+
 });
 
 Route::group(['prefix' => 'repairs'], function() {
