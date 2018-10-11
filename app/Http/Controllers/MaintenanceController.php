@@ -55,11 +55,6 @@ class MaintenanceController extends Controller {
         return redirect()->route('maintenance.overview')->with('info', 'You successfully updated the maintenance reqeust.');
     }
 
-    // archive request (don't delete. we will want it for the reports)
-    public function archiveRequest() {
-        
-    }
-
     public function viewArchivedRequests() {
         if(Auth::check()) {
             $requests = Maintenance::where('user_id', '=', Auth::user()->id)->where('status',['2'])->with('property')->paginate(15);
