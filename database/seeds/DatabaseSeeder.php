@@ -89,6 +89,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '1356', 
             'user_id' => '1',
             'property_id' => '1', 
+            'maintenance_id' => '1'
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -99,6 +100,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '0', 
             'user_id' => '1',
             'property_id' => '2', 
+            'maintenance_id' => '1'
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -109,11 +111,54 @@ class DatabaseSeeder extends Seeder
             'balance' => '500', 
             'user_id' => '2',
             'property_id' => '3', 
+            'maintenance_id' => '2'
         ]);
         factory(App\Tenant::class, 5)->create();
 
         // MAINTENANCE
-        factory(App\Maintenance::class, 15)->create();
+        DB::table('maintenances')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'subject' => 'My Roof Is Leaking Again!!', 
+            'type' => '7', 
+            'description' => 'i woke up this morning and had a flood in my house! it rained all night and the water came in from a giant hole in the roof!', 
+            'emergency' => '1', 
+            'permission' => '1',
+            'status' => '0',
+            'property_id' => '1', 
+            'user_id' => '1', 
+            'repair_id' => '0', 
+            'tenant_id' => '1', 
+        ]);
+        DB::table('maintenances')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'subject' => 'The dishwasher is overflowing', 
+            'type' => '5', 
+            'description' => 'I ran a cycle on my dishwasher, and bubbles started coming out. Can you believe that!!', 
+            'emergency' => '1', 
+            'permission' => '1',
+            'status' => '1',
+            'property_id' => '2', 
+            'user_id' => '1', 
+            'repair_id' => '0', 
+            'tenant_id' => '2', 
+        ]);
+        DB::table('maintenances')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'subject' => 'We have spiders like you wouldnt believe. ants are not the problem anymore', 
+            'type' => '1', 
+            'description' => 'i wake up and all i see are spiders! were used to the ants, just dont make us live with the spiders', 
+            'emergency' => '1', 
+            'permission' => '1',
+            'status' => '2',
+            'property_id' => '3', 
+            'user_id' => '1', 
+            'repair_id' => '0', 
+            'tenant_id' => '3', 
+        ]);
+        //factory(App\Maintenance::class, 15)->create();
 
         // REPAIRS
         factory(App\Repair::class, 20)->create();

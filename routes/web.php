@@ -116,7 +116,7 @@ Route::group(['prefix' => 'maintenance'], function() {
 
 	Route::get('view/{id}', [
 		'uses'	=> "$c@getRequestId",
-		'as'	=> 'maintenance.edit'
+		'as'	=> 'maintenance.view'
 	]);
 
 	Route::post('view', [
@@ -124,6 +124,10 @@ Route::group(['prefix' => 'maintenance'], function() {
 		'as'	=> 'maintenance.update'
 	]);
 
+	Route::get('archive', [
+		'uses'	=> "$c@viewArchivedRequests",
+		'as'	=> 'maintenance.archive'
+	]);
 
 });
 

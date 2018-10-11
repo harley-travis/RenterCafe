@@ -15,12 +15,17 @@ class Maintenance extends Model {
         'status',
         'property_id',
         'user_id',
-        'repair_id'
+        'repair_id',
+        'tenant_id'
     ];
 
     // RELATIONSHIPS
     public function property() {
         return $this->belongsTo('App\Property');
+    }
+
+    public function tenant() {
+        return $this->belongsTo('App\Tenant');
     }
 
     public function repair() {

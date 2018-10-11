@@ -51,16 +51,13 @@ class CreateMaintenancesTable extends Migration
             $table->longText('description');
             $table->integer('emergency');
             $table->integer('permission');
-            $table->enum('status', [
-                'Pending',
-                'In-Progress',
-                'Completed'
-            ]);
+            $table->integer('status');
 
             // FK
             $table->integer('property_id');
             $table->integer('user_id');
             $table->integer('repair_id');
+            $table->integer('tenant_id');
 
         });
     }

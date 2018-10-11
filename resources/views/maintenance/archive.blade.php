@@ -6,14 +6,14 @@
 	<!-- ============================================================== -->
 	<div class="row page-titles">
 		<div class="col-md-5 align-self-center">
-			<h3 class="text-themecolor">Maintenance</h3>
+			<h3 class="text-themecolor">Archvived Maintenance Requests</h3>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-				<li class="breadcrumb-item active">Maintenance Overview</li>
+				<li class="breadcrumb-item active">Archived Maintenance Overview</li>
 			</ol>
 		</div>
 		<div class="col-md-7 align-self-center">
-			<a href="{{ route('maintenance.archive') }}" class="btn waves-effect waves-light btn-success">View Archived Requests</a>
+			<a href="{{ route('maintenance.overview') }}" class="btn waves-effect waves-light btn-success">View Active Requests</a>
 		</div>
 	</div>
 	<!-- ============================================================== -->

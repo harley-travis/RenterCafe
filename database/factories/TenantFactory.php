@@ -11,6 +11,7 @@ $factory->define(App\Tenant::class, function (Faker $faker) {
         'balance' => $faker->numberBetween(900, 1500),
         'user_id' => $faker->numberBetween(1, 3), 
         'property_id' => $faker->numberBetween(0, 5),
+        'maintenance_id' => $faker->numberBetween(0, 100),
 
     ];
 });

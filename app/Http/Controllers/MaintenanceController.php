@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Maintenance;
+use App\Property;
+use App\Tenant;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Session\Store;
 
 class MaintenanceController extends Controller {
 
     public function getRequests() {
-        // NEED TO FIGURE OUT HOW THIS RELATIONSHIP TABLE WILL WORK
-        // BASE ON TENANT? USER? PROPERTY?
-        // HOW TO TIE IT TO THE LANDLORDS ACCOUNT??
         if(Auth::check()) {
-            $requests = Maintenance::where('user_id', '=', Auth::user()->id)->paginate(15);
+            $requests = Maintenance::where('user_id', '=', Auth::user()->id)->whereNotIn('status',['2'])->with('property')->paginate(15);
             return view('maintenance.overview', ['requests' => $requests]);
         } 
     }
@@ -36,20 +37,34 @@ class MaintenanceController extends Controller {
 
     }
 
-    public function getRequestId() {
-        // find the request id and send it back 
+    public function getRequestId($id) {
+        if(Auth::check()) {
+            $request = Maintenance::with('tenant')->find($id);
+            $properties = Property::where('maintenance_id', '=', $id)->get();
+            return view('maintenance.view', ['request' => $request, 'properties' => $properties]);
+        } 
     }
 
-    public function updateRequest() {
-        // mark status (done by user)
-        // pending
-        // in progress
-        // completed
+    public function updateRequest(Store $session, Request $request) {
+        $maintenance = Maintenance::find($request->input('id'));
+        $maintenance->status = $request->input('status');
+        $maintenance->save();
+
+        // send an email to the tenant with the update report
+
+        return redirect()->route('maintenance.overview')->with('info', 'You successfully updated the maintenance reqeust.');
     }
 
     // archive request (don't delete. we will want it for the reports)
     public function archiveRequest() {
         
+    }
+
+    public function viewArchivedRequests() {
+        if(Auth::check()) {
+            $requests = Maintenance::where('user_id', '=', Auth::user()->id)->where('status',['2'])->with('property')->paginate(15);
+            return view('maintenance.archive', ['requests' => $requests]);
+        } 
     }
 
 }
