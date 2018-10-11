@@ -21,6 +21,13 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'Travis Harley',
+            'email' =>'harley.travis2@gmail.com',
+            'password' => bcrypt('test'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
 
         // PROPERTIES
         DB::table('properties')->insert([
@@ -77,6 +84,24 @@ class DatabaseSeeder extends Seeder
             'maintenance_id' => '3',
             'repair_id' => '3',
         ]);
+        DB::table('properties')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'address_1' => '123 happy street', 
+            'address_2' => '', 
+            'city' => 'Salt Lake City', 
+            'state' => 'UT', 
+            'zip' => '84559', 
+            'country' => 'United States', 
+            'occupied' => '1',
+            'lease_length' => '3',
+            'rent_amount' => '1645',
+            'pet' => '1',
+            'user_id' => '2',
+            'tenant_id' => '4',
+            'maintenance_id' => '4',
+            'repair_id' => '0',
+        ]);
         factory(App\Property::class, 5)->create();
 
         // TENANTS
@@ -100,7 +125,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '0', 
             'user_id' => '1',
             'property_id' => '2', 
-            'maintenance_id' => '1'
+            'maintenance_id' => '2'
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -111,7 +136,18 @@ class DatabaseSeeder extends Seeder
             'balance' => '500', 
             'user_id' => '2',
             'property_id' => '3', 
-            'maintenance_id' => '2'
+            'maintenance_id' => '3'
+        ]);
+        DB::table('tenants')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'name' => 'Lennon Harley', 
+            'phone' => '9875558748', 
+            'email' => 'lennon@gmail.com', 
+            'balance' => '500', 
+            'user_id' => '2',
+            'property_id' => '4', 
+            'maintenance_id' => '4'
         ]);
         factory(App\Tenant::class, 5)->create();
 
@@ -157,6 +193,20 @@ class DatabaseSeeder extends Seeder
             'user_id' => '1', 
             'repair_id' => '0', 
             'tenant_id' => '3', 
+        ]);
+        DB::table('maintenances')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'subject' => 'We have spiders like you wouldnt believe. ants are not the problem anymore', 
+            'type' => '1', 
+            'description' => 'i wake up and all i see are spiders! were used to the ants, just dont make us live with the spiders', 
+            'emergency' => '1', 
+            'permission' => '1',
+            'status' => '0',
+            'property_id' => '4', 
+            'user_id' => '2', 
+            'repair_id' => '0', 
+            'tenant_id' => '4', 
         ]);
         //factory(App\Maintenance::class, 15)->create();
 
