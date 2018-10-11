@@ -11,8 +11,8 @@ class CreateMaintenancesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
+
         Schema::create('maintenances', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
@@ -59,6 +59,7 @@ class CreateMaintenancesTable extends Migration
 
             // FK
             $table->integer('property_id');
+            $table->integer('user_id');
             $table->integer('repair_id');
 
         });
@@ -69,8 +70,7 @@ class CreateMaintenancesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('maintenances');
     }
 }

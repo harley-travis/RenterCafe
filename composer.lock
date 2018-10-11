@@ -1285,20 +1285,7 @@
                 "squizlabs/php_codesniffer": "^2.3"
             },
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "RealRashid\\SweetAlert\\SweetAlertServiceProvider"
-                    ],
-                    "aliases": {
-                        "Alert": "RealRashid\\SweetAlert\\Facades"
-                    }
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "RealRashid\\SweetAlert\\": "src"
-                },
                 "files": [
                     "src/functions.php"
                 ]
@@ -1315,7 +1302,6 @@
                     "role": "Developer"
                 }
             ],
-            "description": "SweetAlert2 for Laravel 5.5.* by Rashid Ali",
             "homepage": "https://github.com/realrashid/sweet-alert",
             "keywords": [
                 "alert",

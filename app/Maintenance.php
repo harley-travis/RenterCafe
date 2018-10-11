@@ -14,6 +14,7 @@ class Maintenance extends Model {
         'permission', 
         'status',
         'property_id',
+        'user_id',
         'repair_id'
     ];
 

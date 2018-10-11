@@ -12,6 +12,7 @@ $factory->define(App\Maintenance::class, function (Faker $faker) {
         'permission' => $faker->numberBetween(0, 1), 
         'status' => 'Pending', 
         'property_id' => $faker->numberBetween(0, 3), 
+        'user_id' => $faker->numberBetween(0, 3), 
         'repair_id' => $faker->numberBetween(0, 3), 
 
     ];
