@@ -21,6 +21,8 @@ Route::get('/', function () {
     
 });
 
+// Route::resource('/test', 'testController')->middleware('checkrole');
+
 Route::get('dashboard', function () {
     return view('dashboard.dashboard');
 })->name('dashboard.dashboard');
@@ -130,6 +132,22 @@ Route::group(['prefix' => 'maintenance'], function() {
 	]);
 
 });
+
+Route::group(['prefix' => 'pay'], function() {
+	$c = 'PayController';
+
+	Route::get('', [
+		'uses'	=> "$c@payBill",
+		'as'	=> 'pay.pay'
+	]);
+
+	Route::get('history', [
+		'uses'	=> "$c@getPastTransactions",
+		'as'	=> 'pay.history'
+	]);
+	
+});
+
 
 Route::group(['prefix' => 'repairs'], function() {
 	$c = 'RepairController';
