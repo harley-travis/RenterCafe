@@ -46,7 +46,8 @@ class CreateMaintenancesTable extends Migration
                 'Smoke Detectors',
                 'Storage Unit',
                 'Toilet Problems',
-                'Tub/Shower'
+                'Tub/Shower',
+                'Other',
                 ]); 
             $table->longText('description');
             $table->integer('emergency');

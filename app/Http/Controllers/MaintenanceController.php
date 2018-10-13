@@ -20,7 +20,13 @@ class MaintenanceController extends Controller {
     }
 
     public function createRequest() {
+        return view('maintenance.create');
+    }
 
+    public function addRequest() {
+
+        // validate
+        
         // tenant add the request
 
         // subject line
@@ -30,11 +36,6 @@ class MaintenanceController extends Controller {
         // attachment
 
         // save
-
-    }
-
-    public function addRequest() {
-
     }
 
     public function getRequestId($id) {
