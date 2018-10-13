@@ -14,6 +14,7 @@ class CheckRole
      * @return mixed
      */
     public function handle($request, Closure $next) {
+        // https://www.youtube.com/watch?v=mjIRBlzMMTo
 
         if( auth()->user()->isAdmin == 1 ) {
             return $next($request);
