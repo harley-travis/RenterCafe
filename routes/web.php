@@ -148,7 +148,6 @@ Route::group(['prefix' => 'pay'], function() {
 	
 });
 
-
 Route::group(['prefix' => 'repairs'], function() {
 	$c = 'RepairController';
 

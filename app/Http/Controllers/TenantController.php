@@ -47,6 +47,8 @@ class TenantController extends Controller {
             'balance'       => null,
             'user_id'       => Auth::user()->id, 
             'property_id'   => $request->input('property_id'), 
+            'maintenance_id'=> '0', 
+            
             // find property id
             // this should be a drop down. they should be able to pick from drop down which property. send the id here
 
