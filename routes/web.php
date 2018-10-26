@@ -166,6 +166,5 @@ Route::group(['prefix' => 'feedback'], function() {
 Auth::routes();
 
 //Route::get('/dashboard', 'HomeController@index')->name('dashboard.dashboard');
-// delete this comment
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
