@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Tony Stark',
             'email' =>'tony@gmail.com',
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
+            'remember_token' => '',
             'isAdmin' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -25,7 +27,9 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Travis Harley',
             'email' =>'travis@gmail.com',
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
+            'remember_token' => '',
             'isAdmin' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -35,7 +39,9 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Bruce Wayne',
             'email' =>'bruce@gmail.com',
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
+            'remember_token' => '',
             'isAdmin' => '0',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

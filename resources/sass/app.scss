@@ -1,0 +1,20 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+ @import 'variable'; 
+ @import 'AdminWrapapp'; 
+ @import 'sidebar';
+ @import './pages/pages'; 
+ @import './icons/font-awesome/css/font-awesome.min.css';
+ @import './widgets/widgets';
+ @import 'grid';
+ @import 'responsive'; 
+ @import 'spinners.css'; 
+ @import 'animate.css';     
