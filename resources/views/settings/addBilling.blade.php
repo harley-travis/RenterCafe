@@ -23,7 +23,16 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
-                    Lets add billing!
+
+                    <form action="{{ route('settings.createAccount') }}" method="post">
+
+                        <input type="hidden" name="first_name" value="{{ Auth::user()->name }}">
+                        <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-success">Save Billing</button>
+
+                    </form>
+
                 </div> <!-- card-body -->
              </div>
         </div>

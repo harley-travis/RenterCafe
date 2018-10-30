@@ -157,9 +157,26 @@ Route::group(['prefix' => 'settings'], function() {
 		'as'	=> 'settings.overview'
 	]);
 
+
+	// Route::get('add', [
+	// 	'uses'	=> "$c@createTenant",
+	// 	'as'	=> 'tenants.create'
+	// ]);
+	
+    // Route::post('add', [
+	// 	'uses'	=> "$c@addTenant",
+	// 	'as'	=> 'tenants.add'
+	// ]);
+
+
 	Route::get('billing', [
 		'uses'	=> "$sc@index",
 		'as'	=> 'settings.addBilling'
+	]);
+
+	Route::post('createAccount', [
+		'uses'	=> "$sc@createAccount",
+		'as'	=> 'settings.createAccount'
 	]);
 	
 });
