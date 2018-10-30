@@ -29,6 +29,10 @@
                     <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Reports</span></a>
                   </li>
 
+                  <li> 
+                    <a class="waves-effect waves-dark" href="{{ route('settings.overview') }}" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Settings</span></a>
+                  </li>
+
                 @else
 
                   <li> 

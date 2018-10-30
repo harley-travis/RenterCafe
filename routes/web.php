@@ -148,6 +148,22 @@ Route::group(['prefix' => 'pay'], function() {
 	
 });
 
+Route::group(['prefix' => 'settings'], function() {
+	$c = 'SettingsController';
+	$sc = '\Rap2hpoutre\LaravelStripeConnect\StripeConnect';
+
+	Route::get('', [
+		'uses'	=> "$c@index",
+		'as'	=> 'settings.overview'
+	]);
+
+	Route::get('billing', [
+		'uses'	=> "$sc@index",
+		'as'	=> 'settings.addBilling'
+	]);
+	
+});
+
 Route::group(['prefix' => 'repairs'], function() {
 	$c = 'RepairController';
 
