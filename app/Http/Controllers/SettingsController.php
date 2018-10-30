@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 class SettingsController extends Controller {
      
     // get data for page
-     public function index() {
+    public function index() {
         $user = Auth::user();
         return view('settings.overview', ['user' => $user]);
+    }
+    
+    public function viewVerify() {
+        $user = Auth::user();
+        return view('settings.verifyInfo', ['user' => $user]);
     }
 
     // add billing options
