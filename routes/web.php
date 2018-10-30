@@ -152,6 +152,16 @@ Route::group(['prefix' => 'pay'], function() {
 		'as'	=> 'pay.makePayment'
 	]);
 
+	Route::get('options', [
+		'uses'	=> "$c@viewOptions",
+		'as'	=> 'pay.options'
+	]);
+
+	Route::post('addPaymentOptions', [
+		'uses'	=> "$c@addPaymentOptions",
+		'as'	=> 'pay.addPaymentOptions'
+	]);
+
 	Route::get('history', [
 		'uses'	=> "$c@getPastTransactions",
 		'as'	=> 'pay.history'

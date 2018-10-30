@@ -15,6 +15,16 @@ class PayController extends Controller {
         return view('pay.overview');
     }
 
+    public function viewOptions() { 
+        return view('pay.options');
+    }
+
+    public function addPaymentOptions() {
+        return view('pay.options')
+        ->with('info', 'Good news, your job was added!');
+    }
+    
+
     public function viewPayment() {
         return view('pay.pay');
     }
