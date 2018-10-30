@@ -1,0 +1,1 @@
+<!-- add the payment options and billing information here. use the pay.blade.php to display the default method and select pay -->

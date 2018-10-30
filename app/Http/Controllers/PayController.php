@@ -11,10 +11,12 @@ use Rap2hpoutre\LaravelStripeConnect\StripeConnect;
 
 class PayController extends Controller {
 
-    public function grabBruce() {
-        //$customer = \Stripe\Customer::retrieve("cus_DmXPOCFyOuNjN3");
-        $customer = $stripe->customers()->find('cus_DmXPOCFyOuNjN3');
-        return view('settings.overview', ['customer' => $customer]);
+    public function index() {
+        return view('pay.overview');
+    }
+
+    public function viewPayment() {
+        return view('pay.pay');
     }
 
     // view past transactions by tenant

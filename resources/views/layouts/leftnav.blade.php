@@ -39,7 +39,7 @@
                     <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                   </li>
                   <li> 
-                    <a class="waves-effect waves-dark" href="{{ route('pay.pay') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Pay Bill</span></a>
+                    <a class="waves-effect waves-dark" href="{{ route('pay.overview') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Pay Bill</span></a>
                   </li>
                   <li> 
                     <a class="waves-effect waves-dark" href="{{ route('pay.history') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Payment History</span></a>

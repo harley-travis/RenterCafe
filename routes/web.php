@@ -135,10 +135,21 @@ Route::group(['prefix' => 'maintenance'], function() {
 
 Route::group(['prefix' => 'pay'], function() {
 	$c = 'PayController';
+	$sc = '\Rap2hpoutre\LaravelStripeConnect\StripeConnect';
 
 	Route::get('', [
-		'uses'	=> "$c@payBill",
+		'uses'	=> "$c@index",
+		'as'	=> 'pay.overview'
+	]);
+
+	Route::get('pay', [
+		'uses'	=> "$c@viewPayment",
 		'as'	=> 'pay.pay'
+	]);
+
+	Route::post('makePayment', [
+		'uses'	=> "$c@makePayment",
+		'as'	=> 'pay.makePayment'
 	]);
 
 	Route::get('history', [
