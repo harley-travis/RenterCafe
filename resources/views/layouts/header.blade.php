@@ -12,14 +12,6 @@
 
     <title>{{ config('app.name', 'RenterCafe') }}</title>
 
-    <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/perfect-scrollbar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/morrisjs/morris.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/c3-master/c3.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pages/dashboard1.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/colors/default.css') }}" id="theme" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('stylesheets/styles.css') }}" rel="stylesheet">
 
 </head>
 

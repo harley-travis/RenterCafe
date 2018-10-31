@@ -1,12 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/bootstrap/css/bootstrap.min.css": "/css/bootstrap/css/bootstrap.min.css",
-    "/css/perfect-scrollbar.css": "/css/perfect-scrollbar.css",
-    "/css/morrisjs/morris.css": "/css/morrisjs/morris.css",
-    "/css/c3-master/c3.min.css": "/css/c3-master/c3.min.css",
-    "/css/pages/dashboard1.css": "/css/pages/dashboard1.css",
-    "/css/colors/default.css": "/css/colors/default.css",
+    "/stylesheets/styles.css": "/stylesheets/styles.css",
     "/js/jquery.3.2.0.min.js": "/js/jquery.3.2.0.min.js",
     "/js/popper.min.js": "/js/popper.min.js",
     "/js/bootstrap.min.js": "/js/bootstrap.min.js",

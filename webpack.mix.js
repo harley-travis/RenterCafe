@@ -12,15 +12,19 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/stylesheets/styles.css');
 
 // ADMINWRAP LITE PACKAGES CSS
-mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css/bootstrap/css/bootstrap.min.css');
-mix.copy('resources/sass/pages/perfect-scrollbar.scss', 'public/css/perfect-scrollbar.css');
-mix.copy('resources/sass/morrisjs/morris.css', 'public/css/morrisjs/morris.css');
-mix.copy('resources/sass/c3-master/c3.min.css', 'public/css/c3-master/c3.min.css');
-mix.copy('resources/sass/pages/dashboard1.scss', 'public/css/pages/dashboard1.css');
-mix.copy('resources/sass/colors/default.scss', 'public/css/colors/default.css');
+/**
+ *  NO LONGER NEED THESE COPY FILES. JUST NEED TO COMPILE ABOVE
+ *  going to keep these uncommented until i know that this is fully tested
+ */
+// mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css/bootstrap/css/bootstrap.min.css');
+// mix.copy('resources/sass/pages/perfect-scrollbar.scss', 'public/css/perfect-scrollbar.css');
+// mix.copy('resources/sass/morrisjs/morris.css', 'public/css/morrisjs/morris.css');
+// mix.copy('resources/sass/c3-master/c3.min.css', 'public/css/c3-master/c3.min.css');
+// mix.copy('resources/sass/pages/dashboard1.scss', 'public/css/pages/dashboard1.css');
+// mix.copy('resources/sass/colors/default.scss', 'public/css/colors/default.css');
   
 
 // ADMINWRAP LITE PACKAGES JS
