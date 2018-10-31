@@ -26,8 +26,8 @@
 
                     <form action="{{ route('settings.createAccount') }}" method="post">
 
-                        <!-- <input type="hidden" name="first_name" value="{{ Auth::user()->name }}">
-                        <input type="hidden" name="email" value="{{ Auth::user()->email }}"> -->
+                        <!-- <input type="hidden" name="first_name" value="{{ Auth::user()->name }}"> -->
+                        <input type="hidden" name="email" value="{{ Auth::user() }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-success">Save Billing</button>
 

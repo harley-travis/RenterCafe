@@ -11832,6 +11832,7 @@ When click on sidebar toggler and also for tablet
 .StripeElement {
   background-color: white;
   height: 40px;
+  width: 100%;
   padding: 10px 12px;
   border-radius: 4px;
   border: 1px solid transparent;

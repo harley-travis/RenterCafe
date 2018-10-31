@@ -15,6 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/stylesheets/styles.css'); 
 
 // ADMINWRAP LITE PACKAGES JS
+
+// TO DO: COMPILE ALL JS IN APP.JS CHANGE FOOTER.BLADE.PHP TO ONLY HAVE ONE JS FILE
+
 mix.copy('resources/js/jquery.3.2.0.min.js', 'public/js/jquery.3.2.0.min.js');
 mix.copy('resources/js/popper.min.js', 'public/js/popper.min.js');
 mix.copy('resources/js/bootstrap.min.js', 'public/js/bootstrap.min.js');

@@ -19,9 +19,35 @@ class PayController extends Controller {
         return view('pay.options');
     }
 
-    public function addPaymentOptions() {
+    public function addPaymentOptions(Request $request) {
+
+        // verify info
+
+        // tenant needs account created in stripe
+
+        // function needs to be universal for tenant and landlord
+
+        // determine wither or not this is cc or ach account
+
+        // retrevie the user account number
+
+        // cc  https://stripe.com/docs/api/external_account_cards/create 
+        // ach https://stripe.com/docs/api/external_account_bank_accounts/create
+
+
+        // grab user instance
+
+        // add payment method
+        try {
+            $account = \Stripe\Account::retrieve("");
+            $account->external_accounts->create(["external_account" => "tok_visa_debit"]);
+        } catch (Exception $e) {
+
+        }
+        
+        // return response
         return view('pay.options')
-        ->with('info', 'Good news, your job was added!');
+        ->with('info', 'Good news, your payment was successful!');
     }
     
 

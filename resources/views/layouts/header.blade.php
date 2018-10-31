@@ -29,6 +29,12 @@
     <!-- Styles -->
     <link href="{{ asset('stylesheets/styles.css') }}" rel="stylesheet">
 
+    <script src="https://js.stripe.com/v3/"></script>
+        <script>
+            // var stripe = Stripe('{{env('STRIPE_SECRET')}}');
+            // var elements = stripe.elements();
+        </script>
+
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
