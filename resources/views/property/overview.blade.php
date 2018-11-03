@@ -12,7 +12,7 @@
 				<li class="breadcrumb-item active">Property Overview</li>
 			</ol>
 		</div>
-		<div class="col-md-7 align-self-center">
+		<div class="col-md-7 align-self-center right">
 			<a href="{{ route('property.create') }}" class="btn waves-effect waves-light btn-success">Add Property</a>
 		</div>
 	</div>

@@ -12,7 +12,7 @@
 				<li class="breadcrumb-item active">Tenants Overview</li>
 			</ol>
 		</div>
-		<div class="col-md-7 align-self-center">
+		<div class="col-md-7 align-self-center right">
 			<a href="{{ route('tenants.create') }}" class="btn waves-effect waves-light btn-success">Add Tenant</a>
 		</div>
 	</div>

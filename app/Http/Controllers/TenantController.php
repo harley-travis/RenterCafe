@@ -8,6 +8,7 @@ use App\Property;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Session\Store;
+use \Rap2hpoutre\LaravelStripeConnect\StripeConnect;
 
 class TenantController extends Controller {
     
@@ -55,6 +56,9 @@ class TenantController extends Controller {
         ]);
 
         $user->tenant()->save($tenant);
+
+        // create stripe acct for tenant
+        StripeConnect::createTenantAccount($tenant, $params = []);
 
         // EMAIL TENANT TMP CRED.
         $this::sendTenantEmail($tenant);

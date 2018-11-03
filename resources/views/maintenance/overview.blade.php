@@ -12,7 +12,7 @@
 				<li class="breadcrumb-item active">Maintenance Overview</li>
 			</ol>
 		</div>
-		<div class="col-md-7 align-self-center">
+		<div class="col-md-7 align-self-center right">
 			<a href="{{ route('maintenance.archive') }}" class="btn waves-effect waves-light btn-success">View Archived Requests</a>
 		</div>
 	</div>
