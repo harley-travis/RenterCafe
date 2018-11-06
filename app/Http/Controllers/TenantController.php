@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Tenant;
 use App\Property;
 use Illuminate\Http\Request;
@@ -49,19 +50,18 @@ class TenantController extends Controller {
             'user_id'       => Auth::user()->id, 
             'property_id'   => $request->input('property_id'), 
             'maintenance_id'=> '0', 
-            
-            // find property id
-            // this should be a drop down. they should be able to pick from drop down which property. send the id here
-
         ]);
 
         $user->tenant()->save($tenant);
 
+        // create user account for tenant
+        $registeredUser = RegisterController::createTenant($request->input('name'), $request->input('email'));
+
         // create stripe acct for tenant
-        StripeConnect::createTenantAccount($tenant, $params = []);
+        StripeConnect::createCustomer($request->input('token'), $tenant, $params = []);
 
         // EMAIL TENANT TMP CRED.
-        $this::sendTenantEmail($tenant);
+        // $this::sendTenantEmail($tenant);
 
         // 30 DAY EXPIRATION ON CRED
 

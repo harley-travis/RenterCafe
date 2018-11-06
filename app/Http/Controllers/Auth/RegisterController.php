@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -73,6 +75,17 @@ class RegisterController extends Controller
 
         // create the new account in stripe
         StripeConnect::createAccount($user);
+
+        return $user;
+    }
+
+    public static function createTenant($name, $email) {
+        $user = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make('test'),
+            'isAdmin' => '0',
+        ]);
 
         return $user;
     }

@@ -157,14 +157,23 @@ Route::group(['prefix' => 'pay'], function() {
 		'as'	=> 'pay.options'
 	]);
 
-	Route::post('addPaymentOptions', [
-		'uses'	=> "$c@addPaymentOptions",
-		'as'	=> 'pay.addPaymentOptions'
-	]);
-
 	Route::get('history', [
 		'uses'	=> "$c@getPastTransactions",
 		'as'	=> 'pay.history'
+	]);
+
+	/**
+	 *  ADDING PAYMENT METHODS
+	 */
+
+	Route::post('addBankAccount', [
+		'uses'	=> "$sc@addBankAccount",
+		'as'	=> 'pay.addBankAccount'
+	]);
+
+	Route::post('addCreditCard', [
+		'uses'	=> "$sc@addCreditCard",
+		'as'	=> 'pay.addCreditCard'
 	]);
 	
 });

@@ -29,23 +29,89 @@
 			<div class="card">
 				<div class="card-body">
 
-                    <form action="{{ route('pay.addPaymentOptions') }}" method="post" id="payment-form">
-                        <div class="form-row">
-                            <label for="card-element">
-                            Credit or debit card
-                            </label>
-                            <div id="card-element">
-                            <!-- A Stripe Element will be inserted here. -->
-                            </div>
-
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Add Credit Card or Debit Card
+                            </button>
+                        </h5>
                         </div>
 
-                        <input type="hidden" name="tenant" value="{{ Auth::user() }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button>Submit Payment</button>
-                    </form>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="{{ route('pay.addCreditCard') }}" method="post" id="payment-form">
+                                <div class="form-row">
+                                    <label for="card-element">
+                  
+                                    </label>
+                                    <div id="card-element">
+                                    <!-- A Stripe Element will be inserted here. -->
+                                    </div>
+
+                                    <!-- Used to display form errors. -->
+                                    <div id="card-errors" role="alert"></div>
+                                </div>
+
+                                <input type="hidden" name="tenant" value="{{ Auth::user() }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-success">Save Payment Method</button>
+                            </form>   
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Add Bank Account or ACH
+                            </button>
+                        </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="{{ route('pay.addBankAccount') }}" method="post" id="payment-form">
+                                <div class="form-row">
+                                    <label for="card-element">
+         
+                                    </label>
+
+                                    <div class="form-group">
+                                        <label for="name_on_account">Name on Account</label>
+                                        <input type="text" class="form-control form-control-lg" id="name_on_account" name="name_on_account" placeholder="name on account">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="routing_number">Routing Number</label>
+                                        <input type="text" class="form-control form-control-lg" id="routing_number" name="routing_number" placeholder="routing number">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="account_number">Account Number</label>
+                                        <input type="text" class="form-control form-control-lg" id="account_number" name="account_number" placeholder="account number">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="account_number_verify">Re-Enter Account Number</label>
+                                        <input type="text" class="form-control form-control-lg" id="account_number_verify" name="account_number_verify" placeholder="re-enter account number">
+                                    </div>
+                                    
+
+                                    <!-- Used to display form errors. -->
+                                    <div id="card-errors" role="alert"></div>
+                                </div>
+                                
+                                <input type="hidden" name="token" id="token"><!-- stripe -->
+                                <input type="hidden" name="user" value="{{ Auth::user() }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-success">Save Payment Method</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
 
 				</div><!-- card-body -->
 			</div><!-- card -->

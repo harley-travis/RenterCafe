@@ -59,7 +59,7 @@
                             @endforeach
                         </div>
                         
-
+                        <input type="hidden" name="token" id="token"><!-- stripe -->
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-success">Save Property</button>
 
