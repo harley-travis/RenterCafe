@@ -102,8 +102,6 @@
                                     <div id="card-errors" role="alert"></div>
                                 </div>
                                 
-                                <input type="hidden" name="token" id="token"><!-- stripe -->
-                                <input type="hidden" name="user" value="{{ Auth::user() }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button class="btn btn-success">Save Payment Method</button>
                             </form>

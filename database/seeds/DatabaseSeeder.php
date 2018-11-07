@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // LANDLORD - USERS
         DB::table('users')->insert([
             'name' => 'Tony Stark',
-            'email' =>'tony@gmail.com',
+            'email' =>'tony@test.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
             'remember_token' => '',
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Travis Harley',
-            'email' =>'travis@gmail.com',
+            'email' =>'travis@test.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
             'remember_token' => '',
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '8884569874', 
             'email' => 'peter@test.com', 
             'balance' => '1356', 
-            'user_id' => '1',
+            'user_id' => '3',
             'property_id' => '1', 
             'maintenance_id' => '1'
         ]);
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '8885557416', 
             'email' => 'bruce@test.com', 
             'balance' => '0', 
-            'user_id' => '1',
+            'user_id' => '4',
             'property_id' => '2', 
             'maintenance_id' => '2'
         ]);
@@ -140,24 +140,24 @@ class DatabaseSeeder extends Seeder
             'phone' => '9875558748', 
             'email' => 'dr.strange@test.com', 
             'balance' => '500', 
-            'user_id' => '2',
+            'user_id' => '5',
             'property_id' => '3', 
             'maintenance_id' => '3'
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'name' => 'Lennon Harley', 
+            'name' => 'Pepper Pots', 
             'phone' => '9875558748', 
-            'email' => 'lennon@test.com', 
+            'email' => 'pepper@test.com', 
             'balance' => '500', 
-            'user_id' => '2',
+            'user_id' => '6',
             'property_id' => '4', 
             'maintenance_id' => '4'
         ]);
         factory(App\Tenant::class, 5)->create();
 
-        // TENANT - USERS
+        // TENANTS USER ACCOUNTS
         DB::table('users')->insert([
             'name' => 'Peter Parker',
             'email' =>'pete@test.com',
@@ -178,8 +178,28 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'Dr. Stephen Strange',
+            'email' => 'dr.strange@test.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('test'),
+            'remember_token' => '',
+            'isAdmin' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Pepper Pots', 
+            'email' => 'pepper@test.com', 
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('test'),
+            'remember_token' => '',
+            'isAdmin' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
 
-        // USER TENANTS
+        // USER_TENANTS
         DB::table('user_tenant')->insert([
             'user_id' => '1',
             'tenant_id' =>'1',
@@ -187,8 +207,20 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
         DB::table('user_tenant')->insert([
-            'user_id' => '2',
+            'user_id' => '1',
             'tenant_id' =>'2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('user_tenant')->insert([
+            'user_id' => '2',
+            'tenant_id' =>'3',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('user_tenant')->insert([
+            'user_id' => '2',
+            'tenant_id' =>'4',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

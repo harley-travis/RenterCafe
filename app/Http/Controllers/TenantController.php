@@ -41,21 +41,21 @@ class TenantController extends Controller {
             return redirect()->back();
         }
 
+        // create user account for tenant
+        $registeredUser = RegisterController::createTenant($request->input('name'), $request->input('email'));
+
         // COLLECT TENANT DATA
         $tenant = new Tenant([
             'name'          => $request->input('name'), 
             'phone'         => $request->input('phone'),
             'email'         => $request->input('email'),
             'balance'       => null,
-            'user_id'       => Auth::user()->id, 
+            'user_id'       => $registeredUser['id'], 
             'property_id'   => $request->input('property_id'), 
             'maintenance_id'=> '0', 
         ]);
 
-        $user->tenant()->save($tenant);
-
-        // create user account for tenant
-        $registeredUser = RegisterController::createTenant($request->input('name'), $request->input('email'));
+        $tenant->save();
 
         // create stripe acct for tenant
         StripeConnect::createCustomer($request->input('token'), $tenant, $params = []);
