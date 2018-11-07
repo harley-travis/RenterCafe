@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run() {
         //$this->call(UsersTableSeeder::class);
 
-        // ADMIN
+        // LANDLORD - USERS
         DB::table('users')->insert([
             'name' => 'Tony Stark',
             'email' =>'tony@gmail.com',
@@ -31,18 +31,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('test'),
             'remember_token' => '',
             'isAdmin' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        // USERS
-        DB::table('users')->insert([
-            'name' => 'Bruce Wayne',
-            'email' =>'bruce@gmail.com',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('test'),
-            'remember_token' => '',
-            'isAdmin' => '0',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -128,7 +116,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'name' => 'Peter Parker', 
             'phone' => '8884569874', 
-            'email' => 'peter@gmail.com', 
+            'email' => 'peter@test.com', 
             'balance' => '1356', 
             'user_id' => '1',
             'property_id' => '1', 
@@ -139,7 +127,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'name' => 'Bruce Banner', 
             'phone' => '8885557416', 
-            'email' => 'bruce@gmail.com', 
+            'email' => 'bruce@test.com', 
             'balance' => '0', 
             'user_id' => '1',
             'property_id' => '2', 
@@ -150,7 +138,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'name' => 'Dr. Stephen Strange', 
             'phone' => '9875558748', 
-            'email' => 'dr.strange@gmail.com', 
+            'email' => 'dr.strange@test.com', 
             'balance' => '500', 
             'user_id' => '2',
             'property_id' => '3', 
@@ -161,13 +149,49 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'name' => 'Lennon Harley', 
             'phone' => '9875558748', 
-            'email' => 'lennon@gmail.com', 
+            'email' => 'lennon@test.com', 
             'balance' => '500', 
             'user_id' => '2',
             'property_id' => '4', 
             'maintenance_id' => '4'
         ]);
         factory(App\Tenant::class, 5)->create();
+
+        // TENANT - USERS
+        DB::table('users')->insert([
+            'name' => 'Peter Parker',
+            'email' =>'pete@test.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('test'),
+            'remember_token' => '',
+            'isAdmin' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Bruce Banner',
+            'email' =>'bruce@test.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('test'),
+            'remember_token' => '',
+            'isAdmin' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // USER TENANTS
+        DB::table('user_tenant')->insert([
+            'user_id' => '1',
+            'tenant_id' =>'1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('user_tenant')->insert([
+            'user_id' => '2',
+            'tenant_id' =>'2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
 
         // MAINTENANCE
         DB::table('maintenances')->insert([
