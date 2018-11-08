@@ -58,6 +58,11 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="card_number_verify">Re-Enter Card Number</label>
+                                        <input type="text" class="form-control form-control-lg" id="card_number_verify" name="card_number_verify" placeholder="re-enter card number">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="exp_month">Exp Month</label>
                                         <input type="text" class="form-control form-control-lg" id="exp_month" name="exp_month" placeholder="exp month">
                                     </div>

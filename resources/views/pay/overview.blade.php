@@ -31,15 +31,51 @@
 
 				@foreach($properties as $property)
 
-					${{$property->rent_amount}}
-
-				@endforeach
+					@money($property->rent_amount)			
 
 
                     Novemeber 2018 Statment<br>
                      <br>
-                    <a href="{{ route('pay.pay') }}" class="btn btn-success">Pay Now</a>
+					 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
+						Make Payment
+					</button>
+
+					<!-- Payment Modal -->
+					<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModal" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="paymentModal">@money($property->rent_amount) Due</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+								
+									<form action="{{ route('pay.makePayment') }}" method="POST">
+
+										<span>I agree to the terms of service</span><br>
+
+										<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+									
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-success">Make Payment</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
 					
+					@endforeach
 				</div><!-- card-body -->
 			</div><!-- card -->
 		</div><!-- col-12 -->
