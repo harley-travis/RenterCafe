@@ -17,7 +17,10 @@ class TenantController extends Controller {
     // get tenants
     public function getTenants() {
         if(Auth::check()) {
-            $tenants = Tenant::where('user_id', '=', Auth::user()->id)->paginate(15);
+            $tenants = UserTenant::join('tenants', 'user_tenants.tenant_id', '=', 'tenants.id')
+                            ->where('user_tenants.user_id', '=', Auth::user()->id)
+                            ->paginate(15);
+
             return view('tenants.overview', ['tenants' => $tenants]);
         } 
     }
@@ -34,13 +37,13 @@ class TenantController extends Controller {
     // create tenant 
     public function addTenant(Request $request) {
 
-        // VALIDATE
-
         // VALID USER
         $user = Auth::user(); 
         if(!$user) {
             return redirect()->back();
         }
+
+        // VALIDATE DATA
 
         // create user account for tenant
         $registeredUser = RegisterController::createTenant($request->input('name'), $request->input('email'));
@@ -66,8 +69,6 @@ class TenantController extends Controller {
 
         // EMAIL TENANT TMP CRED.
         // $this::sendTenantEmail($tenant);
-
-        // 30 DAY EXPIRATION ON CRED
 
         return redirect()
             ->route('tenants.overview')
@@ -124,7 +125,7 @@ class TenantController extends Controller {
     }
 
     // remove tenant
-    // TODO: NEED TO ARCHIVE THE TENANT AND NOT ACTUAL DELETE THEM
+    // TO DO: NEED TO ARCHIVE THE TENANT AND NOT ACTUAL DELETE THEM
     public function deleteTenant($id) {
         $tenant = Tenant::find($id);
         $tenant->delete();

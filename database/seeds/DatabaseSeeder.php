@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '1356', 
             'user_id' => '3',
             'property_id' => '1', 
-            'maintenance_id' => '1'
+            'maintenance_id' => '1',
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '0', 
             'user_id' => '4',
             'property_id' => '2', 
-            'maintenance_id' => '2'
+            'maintenance_id' => '2',
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -142,7 +142,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '500', 
             'user_id' => '5',
             'property_id' => '3', 
-            'maintenance_id' => '3'
+            'maintenance_id' => '3',
         ]);
         DB::table('tenants')->insert([
             'created_at' => Carbon::now(),
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
             'balance' => '500', 
             'user_id' => '6',
             'property_id' => '4', 
-            'maintenance_id' => '4'
+            'maintenance_id' => '4',
         ]);
         factory(App\Tenant::class, 5)->create();
 
