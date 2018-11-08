@@ -28,8 +28,16 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
+
+				@foreach($properties as $property)
+
+					${{$property->rent_amount}}
+
+				@endforeach
+
+
                     Novemeber 2018 Statment<br>
-                    $1200 <br>
+                     <br>
                     <a href="{{ route('pay.pay') }}" class="btn btn-success">Pay Now</a>
 					
 				</div><!-- card-body -->

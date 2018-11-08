@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Validator;
 use Auth;
+use App\Property;
+use App\Tenant;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Cartalyst\Stripe\Stripe;
@@ -12,7 +14,9 @@ use Rap2hpoutre\LaravelStripeConnect\StripeConnect;
 class PayController extends Controller {
 
     public function index() {
-        return view('pay.overview');
+        $tenant_id = Tenant::where('user_id', '=', Auth::user()->id)->pluck('id');
+        $properties = Property::where('tenant_id', '=', $tenant_id)->get();
+        return view('pay.overview', ['properties' => $properties]);
     }
 
     public function viewOptions() { 
