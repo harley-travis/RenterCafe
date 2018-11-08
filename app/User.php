@@ -32,10 +32,6 @@ class User extends Authenticatable {
         return $this->hasMany('App\Property');
     }
 
-    public function tenant() {
-        return $this->hasMany('App\Tenant');
-    }
-
     public function stripe() {
         return $this->hasMany('\Rap2hpoutre\LaravelStripeConnect\Stripe');
     }

@@ -6,6 +6,7 @@ use Auth;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Tenant;
 use App\Property;
+use App\UserTenant;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Session\Store;
@@ -60,6 +61,9 @@ class TenantController extends Controller {
         // create stripe acct for tenant
         StripeConnect::createCustomer($request->input('token'), $tenant, $params = []);
 
+        // add the user to the user_tenant table
+        self::addUserTenant($tenant['id']);
+
         // EMAIL TENANT TMP CRED.
         // $this::sendTenantEmail($tenant);
 
@@ -69,6 +73,17 @@ class TenantController extends Controller {
             ->route('tenants.overview')
             ->with('info', 'Good news, the tenant was successfully added!');
 
+    }
+
+    // add the tenant to the user_tenant table
+    public function addUserTenant($id) {
+        
+        $userTenant = new UserTenant([
+            'user_id' => Auth::user()->id,
+            'tenant_id' => $id,
+        ]);
+
+        $userTenant->save();
     }
 
     // send tenant login cred

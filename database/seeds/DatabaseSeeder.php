@@ -200,25 +200,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // USER_TENANTS
-        DB::table('user_tenant')->insert([
+        DB::table('user_tenants')->insert([
             'user_id' => '1',
             'tenant_id' =>'1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        DB::table('user_tenant')->insert([
+        DB::table('user_tenants')->insert([
             'user_id' => '1',
             'tenant_id' =>'2',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        DB::table('user_tenant')->insert([
+        DB::table('user_tenants')->insert([
             'user_id' => '2',
             'tenant_id' =>'3',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        DB::table('user_tenant')->insert([
+        DB::table('user_tenants')->insert([
             'user_id' => '2',
             'tenant_id' =>'4',
             'created_at' => Carbon::now(),

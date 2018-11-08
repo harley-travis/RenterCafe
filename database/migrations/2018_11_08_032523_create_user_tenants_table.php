@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTenants extends Migration
+class CreateUserTenantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserTenants extends Migration
      */
     public function up()
     {
-        Schema::create('user_tenant', function (Blueprint $table) {
+        Schema::create('user_tenants', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id');
@@ -28,6 +28,6 @@ class CreateUserTenants extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_tenant');
+        Schema::dropIfExists('user_tenants');
     }
 }
