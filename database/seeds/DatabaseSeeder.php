@@ -160,7 +160,7 @@ class DatabaseSeeder extends Seeder
         // TENANTS USER ACCOUNTS
         DB::table('users')->insert([
             'name' => 'Peter Parker',
-            'email' =>'pete@test.com',
+            'email' =>'peter@test.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('test'),
             'remember_token' => '',

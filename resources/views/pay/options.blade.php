@@ -46,15 +46,29 @@
                                     <label for="card-element">
                   
                                     </label>
-                                    <div id="card-element">
-                                    <!-- A Stripe Element will be inserted here. -->
+
+                                    <div class="form-group">
+                                        <label for="card_number">Card Number</label>
+                                        <input type="text" class="form-control form-control-lg" id="card_number" name="card_number" placeholder="card number">
                                     </div>
 
-                                    <!-- Used to display form errors. -->
-                                    <div id="card-errors" role="alert"></div>
+                                    <div class="form-group">
+                                        <label for="exp_month">Exp Month</label>
+                                        <input type="text" class="form-control form-control-lg" id="exp_month" name="exp_month" placeholder="exp month">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exp_year">Exp Year</label>
+                                        <input type="text" class="form-control form-control-lg" id="exp_year" name="exp_year" placeholder="exp year">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cvc">CVC</label>
+                                        <input type="text" class="form-control form-control-lg" id="cvc" name="cvc" placeholder="cvc">
+                                    </div>
+                                   
                                 </div>
 
-                                <input type="hidden" name="tenant" value="{{ Auth::user() }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button class="btn btn-success">Save Payment Method</button>
                             </form>   
@@ -96,10 +110,7 @@
                                         <label for="account_number_verify">Re-Enter Account Number</label>
                                         <input type="text" class="form-control form-control-lg" id="account_number_verify" name="account_number_verify" placeholder="re-enter account number">
                                     </div>
-                                    
-
-                                    <!-- Used to display form errors. -->
-                                    <div id="card-errors" role="alert"></div>
+                                
                                 </div>
                                 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
