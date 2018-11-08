@@ -48,6 +48,11 @@
                                     </label>
 
                                     <div class="form-group">
+                                        <label for="name">Name on Card</label>
+                                        <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="name on card">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="card_number">Card Number</label>
                                         <input type="text" class="form-control form-control-lg" id="card_number" name="card_number" placeholder="card number">
                                     </div>
