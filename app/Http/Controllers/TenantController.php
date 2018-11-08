@@ -17,7 +17,7 @@ class TenantController extends Controller {
     // get tenants
     public function getTenants() {
         if(Auth::check()) {
-            $tenants = UserTenant::join('tenants', 'user_tenants.tenant_id', '=', 'tenants.id')
+            $tenants = Tenant::join('user_tenants', 'tenants.id', '=', 'user_tenants.tenant_id')
                             ->where('user_tenants.user_id', '=', Auth::user()->id)
                             ->paginate(15);
 
