@@ -225,6 +225,25 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
+        // STRIPES 
+        // LANDLORD STRIPE
+        DB::table('stripes')->insert([
+            'account_id' => env('STRIPE_LANDLORD'),
+            'customer_id' => null,
+            'user_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // CUSTOMER/TENANT STRIPE
+        DB::table('stripes')->insert([
+            'account_id' => null,
+            'customer_id' => env('STRIPE_CUSTOMER'),
+            'user_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
         // MAINTENANCE
         DB::table('maintenances')->insert([
             'created_at' => Carbon::now(),

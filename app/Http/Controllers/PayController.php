@@ -7,7 +7,6 @@ use App\Property;
 use App\Tenant;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Cartalyst\Stripe\Stripe;
 use Stripe\Error\Card;
 use Rap2hpoutre\LaravelStripeConnect\StripeConnect;
 
@@ -16,44 +15,13 @@ class PayController extends Controller {
     public function index() {
         $tenant_id = Tenant::where('user_id', '=', Auth::user()->id)->pluck('id');
         $properties = Property::where('tenant_id', '=', $tenant_id)->get();
-        return view('pay.overview', ['properties' => $properties]);
+        $stripeData = StripeConnect::grabCustomer();
+        return view('pay.overview', ['properties' => $properties, 'stripeData' => $stripeData]);
     }
 
     public function viewOptions() { 
         return view('pay.options');
     }
-
-    public function addPaymentOptions(Request $request) {
-
-        // verify info
-
-        // tenant needs account created in stripe
-
-        // function needs to be universal for tenant and landlord
-
-        // determine wither or not this is cc or ach account
-
-        // retrevie the user account number
-
-        // cc  https://stripe.com/docs/api/external_account_cards/create 
-        // ach https://stripe.com/docs/api/external_account_bank_accounts/create
-
-
-        // grab user instance
-
-        // add payment method
-        try {
-            $account = \Stripe\Account::retrieve("");
-            $account->external_accounts->create(["external_account" => "tok_visa_debit"]);
-        } catch (Exception $e) {
-
-        }
-        
-        // return response
-        return view('pay.options')
-        ->with('info', 'Good news, your payment was successful!');
-    }
-    
 
     public function viewPayment() {
         return view('pay.pay');

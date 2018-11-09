@@ -45,7 +45,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="paymentModal">@money($property->rent_amount) Due</h5>
+									<h5 class="modal-title" id="paymentModal">MONTH RENT DUE</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -54,16 +54,46 @@
 								
 									<form action="{{ route('pay.makePayment') }}" method="POST">
 
-										<span>I agree to the terms of service</span><br>
+										<div class="row">
+											<div class="col-md-6 left">
+												January 1
+											</div>
+											<div class="col-md-6 right">
+												<span class="text-success">@money($property->rent_amount)</span>
+											</div>
+										</div>
+
+										@foreach($stripeData as $stripe)
+										 <div class="form-group">
+											<label for="renting"></label>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="renting" id="yes" value="" checked>
+												<label class="form-check-label" for="yes">Default Payment XXXX XXXX XXXX {{$stripe}}</label>
+											</div><br>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio">
+												<label class="form-check-label" for="add new"><a href="{{ route('pay.options') }}">Add New</a></label>
+											</div>
+										</div>
+										@endforeach
+					
+										<div class="form-group">
+											<div class="checkbox checkbox-success">
+												<input id="checkbox" type="checkbox" name="agree">  
+												<label for="checkbox"> I agree to the <a href="#" target="_blank">terms of service</a></label>
+											</div>
+										</div>
+
+
+
+
+										
 
 										<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-									
-
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-success">Make Payment</button>
+									<button type="button" class="btn btn-lg btn-success full-length">Pay @money($property->rent_amount)</button>
 									</form>
 								</div>
 							</div>

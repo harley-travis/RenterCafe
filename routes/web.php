@@ -148,7 +148,7 @@ Route::group(['prefix' => 'pay'], function() {
 	]);
 
 	Route::post('makePayment', [
-		'uses'	=> "$c@makePayment",
+		'uses'	=> "$sc@makePayment",
 		'as'	=> 'pay.makePayment'
 	]);
 

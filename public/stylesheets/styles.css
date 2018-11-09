@@ -11862,6 +11862,22 @@ When click on sidebar toggler and also for tablet
   text-align: right;
 }
 
+.full-length {
+  width: 100%;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
 /*
 Template Name: Admin pro Admin
 Author: Wrappixel
