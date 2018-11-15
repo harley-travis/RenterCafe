@@ -14,12 +14,14 @@ class PayController extends Controller {
 
     public function index() {
         $tenant_id = Tenant::where('user_id', '=', Auth::user()->id)->pluck('id');
+        $tenants = Tenant::where('user_id', '=', Auth::user()->id)->get();
         $properties = Property::where('tenant_id', '=', $tenant_id)->get();
         $stripeData = StripeConnect::grabCustomer();
-        
+
         return view('pay.overview', [
             'properties' => $properties, 
-            'stripeData' => $stripeData
+            'stripeData' => $stripeData,
+            'tenants' => $tenants
         ]);
     }
 

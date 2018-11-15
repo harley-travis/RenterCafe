@@ -52,7 +52,7 @@
 								</div>
 								<div class="modal-body">
 								
-									<form action="{{ route('pay.payRent') }}" method="POST">
+									<form action="{{ route('pay.payRent') }}" method="post">
 
 										<div class="row">
 											<div class="col-md-6 left">
@@ -84,13 +84,19 @@
 											</div>
 										</div>
 
+
 										<input type="hidden" name="_token" value="{{ csrf_token() }}">
 										<input type="hidden" name="landlord" value="{{ $property->user_id }}">
 										<input type="hidden" name="amount" value="{{ $property->rent_amount }}">
+								
+
+										@foreach($tenants as $tenant)
+										<input type="hidden" name="email" value="{{ $tenant->email }}">
+										@endforeach
 
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-lg btn-success full-length">Pay @money($property->rent_amount)</button>
+									<button type="submit" class="btn btn-lg btn-success full-length">Pay @money($property->rent_amount)</button>
 									</form>
 								</div>
 							</div>
