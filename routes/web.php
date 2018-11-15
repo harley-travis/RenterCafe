@@ -147,9 +147,9 @@ Route::group(['prefix' => 'pay'], function() {
 		'as'	=> 'pay.pay'
 	]);
 
-	Route::post('makePayment', [
-		'uses'	=> "$sc@makePayment",
-		'as'	=> 'pay.makePayment'
+	Route::post('payRent', [
+		'uses'	=> "$sc@payRent",
+		'as'	=> 'pay.payRent'
 	]);
 
 	Route::get('options', [
