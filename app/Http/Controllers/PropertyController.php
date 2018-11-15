@@ -83,14 +83,24 @@ class PropertyController extends Controller {
 
         $property->save();
 
-        return redirect()->route('property.overview')->with('info', 'Your property was successfully updated');
+        return redirect()
+            ->route('property.overview')
+            ->with('info', 'Your property was successfully updated');
 
+    }
+
+    public static function addTenantToProperty($property_id, $tenant_id) {
+        $property = Property::find($property_id);
+        $property->tenant_id = $tenant_id;
+        $property->save();
     }
 
     public function deleteProperty($id) {
         $property = Property::find($id);
         $property->delete();
-        return redirect()->route('property.overview')->with('info', 'Your property was successfully deleted');
+        return redirect()
+            ->route('property.overview')
+            ->with('info', 'Your property was successfully deleted');
     }
 
 
